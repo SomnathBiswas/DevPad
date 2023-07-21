@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="coding.png">
+    <title>DevPad</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/79d73bb590.js" crossorigin="anonymous"></script>
+</head> 
+<body>
+    <h1>DevPad <i class="fa-solid fa-code" style="color: #d2e00b;"></i> an ideal IDE for Begineers</h1>
+    <div class="container">
+        <div class="left">
+            <label><i class="fa-brands fa-html5" style="color: #d06711;"></i> HTML</label>
+            <textarea id="html-code" onkeyup="run()"></textarea>
+
+            <label><i class="fa-brands fa-css3-alt" style="color: #0d7ee7;"></i> CSS</label>
+            <textarea id="css-code" onkeyup="run()"></textarea>
+
+            <label><i class="fa-brands fa-js" style="color: #deed02;"></i> JS</label>
+            <textarea id="js-code" onkeyup="run()"></textarea>
+        </div>
+        <div class="right">
+            <label><i class="fa-solid fa-play" style="color: #e6e7ea;"></i> Output</label>
+            <iframe id="output"></iframe>
+        </div>
+    </div>
+
+
+
+<script>
+
+    function run(){
+        let htmlCode = document.getElementById("html-code").value;
+        let cssCode = document.getElementById("css-code").value;
+        let jsCode = document.getElementById("js-code").value;
+        let output = document.getElementById("output");
+
+        output.contentDocument.body.innerHTML = htmlCode + "<style>" + cssCode +"</style>";
+        output.contentWindow.eval(jsCode);
+    }
+</script>
+
+
+</body>
+</html>
